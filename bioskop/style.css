@@ -1,0 +1,112 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('img/bg1.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh; /* Postavite visinu stranice na 100% visine ekrana */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Da gornji deo zauzima samo neophodan prostor */
+  align-items: center; /* Centriraj sve */
+  overflow: hidden;
+}
+
+/* Container koji sadrži sve */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #ffffff; /* Bela boja za tekst 'Lista Filmova' */
+  text-align: center;
+  font-size: 36px;
+}
+
+
+/* Za prikazivanje filmova u jednom redu */
+#movies {
+  display: flex;
+  justify-content: space-around; /* Razmak između slika */
+  width: 100%;
+  margin-bottom: 20px;
+  gap: 20px; /* Razmak između filmova */
+  padding: 10px;
+}
+
+/* Za svaki film */
+.movie {
+  text-align: center;
+  width: 200px; /* Definisana širina za svaku sliku */
+  transition: background 0.5s ease, opacity 0.5s ease, transform 0.3s ease; /* Glatke animacije */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9); /* Početna pozadina */
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* Kada je film označen kao gledan (zatamni) */
+.movie.watched {
+  background-color: rgba(128, 128, 128, 0.7); /* Zatamnjenje pozadine */
+  color: white;
+  opacity: 0.7; /* Smanjuje neprozirnost */
+  transform: scale(1.05); /* Lagano povećanje kada se klikne */
+}
+
+/* Slike filmova */
+.movie.watched {
+  background-color: rgba(128, 128, 128, 0.7); /* Srednja siva pozadina */
+  opacity: 1; /* Održava tekst neprozirnim */
+  transform: scale(1.05); /* Blago povećanje za vizuelni efekat */
+  z-index: 1; /* Postavlja pozadinu ispod teksta */
+}
+
+/* Kada je film gledan, tekst treba da bude beo */
+.movie.watched .movie-info h3,
+.movie.watched .movie-info p {
+  color: white; /* Bela boja za naslov i tekst kada je film gledan */
+  z-index: 2; /* Postavlja tekst ispred pozadine */
+}
+
+/* Efekti pri prelasku miša */
+.movie:hover img {
+  transform: scale(1.1); /* Povećanje slike pri prelasku miša */
+}
+
+/* Dugme za gledanje */
+button {
+  padding: 10px 15px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+button:disabled {
+  background: #888;
+  cursor: not-allowed;
+}
+
+/* Sekcija za ukupno potrošeno */
+.summary {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
